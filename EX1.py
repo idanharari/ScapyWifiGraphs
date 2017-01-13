@@ -206,9 +206,8 @@ class myGraph:
 ############## end of class ##########################################################################################
 
 def open_file():
-    # filename = input('Enter file name: ')
 
-    # need to insert 'Try&Catch'
+
     print "hii"
     path = raw_input('insert path folder:\n')
     filename = raw_input('insert file name:\n')
@@ -219,20 +218,26 @@ def open_file():
 
 
 def main():
-    pathFile = open_file()
-    answer = raw_input('show MAC addresses graph: y/n \n')
-    if answer in ['y','Y']:
-        pathFile.display_by_MAC_addresses()
-    answer = raw_input('show NETWORKS graph: y/n \n')
-    if answer in ['y','Y']:
-        pathFile.display_by_networks()
-    answer = raw_input('show PROTOCOLS graph: y/n \n')
-    if answer in ['y','Y']:
-        pathFile.display_protocol()
+    again = 'y'
+    while again not in ['n','N','NO','no']:
+        pathFile = open_file()
+        answer = raw_input('show MAC addresses graph: y/n \n')
+        if answer in ['y','Y']:
+            pathFile.display_by_MAC_addresses()
+        answer = raw_input('show NETWORKS graph: y/n \n')
+        if answer in ['y','Y']:
+            pathFile.display_by_networks()
+        answer = raw_input('show PROTOCOLS graph: y/n \n')
+        if answer in ['y','Y']:
+            pathFile.display_protocol()
     # pathFile.display_srcdest()
-    answer = raw_input('show IP CONVERSATIONS graph: y/n \n')
-    if answer in ['y','Y']:
-        pathFile.display_graph()
+        answer = raw_input('show IP CONVERSATIONS graph: y/n \n')
+        if answer in ['y','Y']:
+            pathFile.display_graph()
+
+        again = raw_input('do you want to insert another cap file? y/n:\n')
+
+
 
 # call main
 if __name__ == '__main__':
